@@ -1,0 +1,30 @@
+.container {
+  width: 609px;
+  background: #5c80bc;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 1.4rem 2rem;
+  margin-block: 2.5rem;
+  margin-inline: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 22px;
+  margin-left: 1.5rem;
+}
+
+.subtitle {
+  margin-left: 1.5rem;
+  font-size: 14px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}

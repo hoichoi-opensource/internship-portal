@@ -1,0 +1,25 @@
+.tabContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-inline: 1rem;
+  border: 1px solid #6b717e;
+  padding: 0.4rem 0.8rem;
+  border-radius: 10px;
+  color: #6b717e;
+}
+
+.activeContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-inline: 1rem;
+  border: 1px solid #5c80bc;
+  background-color: #5c80bc;
+  padding: 0.4rem 0.8rem;
+  border-radius: 10px;
+}
+
+.tabName {
+  margin-right: 20px;
+}
