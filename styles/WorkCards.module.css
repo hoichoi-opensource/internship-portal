@@ -1,5 +1,5 @@
 .container {
-  width: 609px;
+  width: min(70%, 609px);
   background: #5c80bc;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
@@ -22,9 +22,39 @@
   font-size: 14px;
 }
 
+.icon {
+  --size: 124px;
+  width: var(--size);
+  height: var(--size);
+}
+
 .column {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    padding: 1rem 0.6rem;
+    flex-direction: column;
+  }
+
+  .icon {
+    --size: 100px;
+  }
+
+  .title {
+    font-size: 18px;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 10px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    text-align: center;
+    margin: auto;
+  }
 }
