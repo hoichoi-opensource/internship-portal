@@ -7,40 +7,38 @@ import styles from '../styles/Home.module.css'
 import Linkedin from "../components/icons/Linkedin"
 import Twitter from "../components/icons/Twitter"
 import ReactPlayer from 'react-player/youtube'
-import PositionCards from '../components/PositionCards'
 import { useEffect, useState } from 'react'
-import shuffleSeed from 'shuffle-seed'
-import Link from 'next/link'
+// import shuffleSeed from 'shuffle-seed'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 export const getStaticProps = async () => {
-  const resp = await fetch("https://join.hoichoi.tech/api/tabs");
+  // const resp = await fetch("https://join.hoichoi.tech/api/tabs");
   // const resp = await fetch("http://localhost:3000/api/tabs");
-  const tabData = await resp.json();
-  const resp1 = await fetch("https://join.hoichoi.tech/api/stacks");
-  // const resp1 = await fetch("http://localhost:3000/api/stacks");
+  // const tabData = await resp.json();
+  // const resp1 = await fetch("https://join.hoichoi.tech/api/stacks");
+  const resp1 = await fetch("http://localhost:3000/api/stacks");
   const stacksData = await resp1.json();
 
   return {
-    props: {tabData, stacksData}
+    props: {stacksData}
   }
 }
 
-export default function Home({tabData, stacksData}) {
+export default function Home({stacksData}) {
   const [activeCard, setActiveCard] = useState(null);
-  const [showTabs, setShowTabs] = useState(false);
-  const [tabList, setTabList] = useState([]);
-  const [activeTabs, setActiveTabs] = useState([]);
+  // const [showTabs, setShowTabs] = useState(false);
+  // const [tabList, setTabList] = useState([]);
+  // const [activeTabs, setActiveTabs] = useState([]);
 
   useEffect(() => {
     AOS.init({duration: 1200});
   },[])
   
-  useEffect(() => {
-    const shuffle = shuffleSeed.shuffle(tabData.tabs, Math.random());
-    setTabList(shuffle);
-  },[activeCard])
+  // useEffect(() => {
+  //   const shuffle = shuffleSeed.shuffle(tabData.tabs, Math.random());
+  //   setTabList(shuffle);
+  // },[activeCard])
 
   return (
     <div>
@@ -98,12 +96,12 @@ export default function Home({tabData, stacksData}) {
         </div>
         <div className={styles.cardsContainer} data-aos="fade-up" data-aos-delay="450">
           <div className={styles.cards}>
-            <JobCards title="Working Professionals" subtitle="Take your career to the next level" active={activeCard === 0} onClick={() => {setActiveCard(0); setShowTabs(true);}} />
-            <JobCards title="Recent Graduates" subtitle="Make bold steps in a new direction" active={activeCard === 1} onClick={() => {setActiveCard(1); setShowTabs(true);}} />
+            <JobCards title="Working Professionals" subtitle="Take your career to the next level" active={activeCard === 0} onClick={() => setActiveCard(0)} />
+            <JobCards title="Recent Graduates" subtitle="Make bold steps in a new direction" active={activeCard === 1} onClick={() => setActiveCard(1)} />
           </div>
-          <JobCards title="Internships" subtitle="Bring your passion  to make a difference" active={activeCard === 2} onClick={() => {setActiveCard(2); setShowTabs(true);}} />
+          <JobCards title="Internships" subtitle="Bring your passion  to make a difference" active={activeCard === 2} onClick={() => setActiveCard(2)} />
         </div>
-        {showTabs && <>
+        {/* {showTabs && <>
           <div className={styles.paraContainer2} data-aos="fade-in" data-aos-delay="150">
           <p className={styles.para3}>Pick at least one option from below</p>
           </div>
@@ -116,24 +114,12 @@ export default function Home({tabData, stacksData}) {
              }} />
            })}
          </div>
-        </>}
-        {activeTabs.length !== 0 && <Link href={activeCard === 0 ? {
-          pathname: "/professional",
-          query: {
-            experience: "Working Professional",
-            skills: [...activeTabs]
-          }
-          } : {
-            pathname: "/internship",
-            query: {
-              experience: activeCard === 1 ? "Recent Graduates" : "Internship",
-              skills: [...activeTabs]
-            }
-            }} as={activeCard === 0 ? "/professional" : "/internship"}><div className={styles.continueBtn} data-aos="fade-in" data-aos-delay="150">Continue</div></Link>}
+        </>} */}
+        {activeCard !== null && <div className={styles.continueBtn} data-aos="fade-in" data-aos-delay="150" onClick={() => activeCard === 0 ? window.location.href="https://it358079.typeform.com/to/hU27kWup" : window.location.href="https://it358079.typeform.com/to/hU27kWup"}>Continue</div>}
       </section>
       <footer className={styles.footerContainer}>
           <div className={styles.footerContent}>
-            Copyright ©{new Date().getFullYear()} hoichoi.tech
+            Copyright ©{new Date().getFullYear()} <div className={styles.footerLogo} />
           </div>
           <div className={styles.footerContent1}>
             <div className={styles.text}>Build with </div>

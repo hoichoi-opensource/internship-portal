@@ -9,6 +9,11 @@
   background-position: center right;
   /* height: 300px; */
   padding-inline: 6rem;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -o-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  -ms-interpolation-mode: nearest-neighbor;
 }
 
 .logoContainer {
@@ -133,6 +138,20 @@
   font-weight: 700;
 }
 
+.footerLogo {
+  width: 120px;
+  height: 40px;
+  background: url("/assets/Tech_Logo_2_White.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -o-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  -ms-interpolation-mode: nearest-neighbor;
+}
+
 .footerContainer {
   display: flex;
   align-items: center;
@@ -152,6 +171,9 @@
 }
 
 .footerContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex: 1;
 }
 
@@ -211,6 +233,10 @@
     padding-inline: 2rem;
     font-size: 14px;
   }
+
+  .footerContent {
+    flex-direction: column;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -247,6 +273,7 @@
   }
 
   .footerContent {
+    flex-direction: row;
     margin-bottom: 10px;
   }
 
