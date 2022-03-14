@@ -16,8 +16,8 @@ export const getStaticProps = async () => {
   // const resp = await fetch("https://join.hoichoi.tech/api/tabs");
   // const resp = await fetch("http://localhost:3000/api/tabs");
   // const tabData = await resp.json();
-  // const resp1 = await fetch("https://join.hoichoi.tech/api/stacks");
-  const resp1 = await fetch("http://localhost:3000/api/stacks");
+  const resp1 = await fetch("https://join.hoichoi.tech/api/stacks");
+  // const resp1 = await fetch("http://localhost:3000/api/stacks");
   const stacksData = await resp1.json();
 
   return {
