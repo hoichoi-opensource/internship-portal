@@ -8,37 +8,58 @@ import Linkedin from "../components/icons/Linkedin"
 import Twitter from "../components/icons/Twitter"
 import ReactPlayer from 'react-player/youtube'
 import { useEffect, useState } from 'react'
-// import shuffleSeed from 'shuffle-seed'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-export const getStaticProps = async () => {
-  // const resp = await fetch("https://join.hoichoi.tech/api/tabs");
-  // const resp = await fetch("http://localhost:3000/api/tabs");
-  // const tabData = await resp.json();
-  const resp1 = await fetch("https://join.hoichoi.tech/api/stacks");
-  // const resp1 = await fetch("http://localhost:3000/api/stacks");
-  const stacksData = await resp1.json();
-
-  return {
-    props: {stacksData}
-  }
-}
-
-export default function Home({stacksData}) {
+export default function Home() {
   const [activeCard, setActiveCard] = useState(null);
-  // const [showTabs, setShowTabs] = useState(false);
-  // const [tabList, setTabList] = useState([]);
-  // const [activeTabs, setActiveTabs] = useState([]);
+
+  const stacksData = [
+    {
+        icon: "kotlin",
+        name: "Kotlin"
+    },
+    {
+        icon: "swift",
+        name: "Swift"
+    },
+    {
+        icon: "react",
+        name: "React"
+    },
+    {
+        icon: "node",
+        name: "Node.js"
+    },
+    {
+        icon: "firebase",
+        name: "Firebase"
+    },
+    {
+        icon: "redis",
+        name: "Redis"
+    },
+    {
+        icon: "amazon",
+        name: "Amazon"
+    },
+    {
+        icon: "stripe",
+        name: "Stripe"
+    },
+    {
+        icon: "git",
+        name: "Git"
+    },
+    {
+        icon: "docker",
+        name: "Docker"
+    },
+];
 
   useEffect(() => {
     AOS.init({duration: 1200});
   },[])
-  
-  // useEffect(() => {
-  //   const shuffle = shuffleSeed.shuffle(tabData.tabs, Math.random());
-  //   setTabList(shuffle);
-  // },[activeCard])
 
   return (
     <div>
@@ -73,7 +94,7 @@ export default function Home({stacksData}) {
           <p className={styles.para}>We work with multiple programming languages, infrastructure and different technologies to ensure all-round availability of the hoichoi video streaming across multiple platforms.</p>
         </div>
           <div className={styles.stacks} data-aos="fade-up" data-aos-delay="200">
-            {stacksData.stack.map((stack, index) => {
+            {stacksData.map((stack, index) => {
               return <StackCard key={index} icon={stack.icon} name={stack.name} />
             })}
           </div>
@@ -101,20 +122,6 @@ export default function Home({stacksData}) {
           </div>
           <JobCards title="Internships" subtitle="Bring your passion  to make a difference" active={activeCard === 2} onClick={() => setActiveCard(2)} />
         </div>
-        {/* {showTabs && <>
-          <div className={styles.paraContainer2} data-aos="fade-in" data-aos-delay="150">
-          <p className={styles.para3}>Pick at least one option from below</p>
-          </div>
-          <div className={styles.tabs} data-aos="fade-in" data-aos-delay="200">
-           {tabList.map( (tab, index) => {
-             return <PositionCards name={tab} key={index} active={activeTabs.includes(tab)} onClick={() => {
-              activeTabs.includes(tab) 
-              ? setActiveTabs(activeTabs.filter( item => item !== tab)) 
-              : setActiveTabs(prev => prev.length === 0 ? [tab] : [...activeTabs, tab])
-             }} />
-           })}
-         </div>
-        </>} */}
         {activeCard !== null && <div className={styles.continueBtn} data-aos="fade-in" data-aos-delay="150" onClick={() => activeCard === 0 ? window.location.href="https://it358079.typeform.com/to/hU27kWup" : window.location.href="https://it358079.typeform.com/to/hU27kWup"}>Continue</div>}
       </section>
       <footer className={styles.footerContainer}>
