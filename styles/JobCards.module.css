@@ -1,10 +1,11 @@
 .container {
   width: 448px;
   background: transparent;
-  outline: 1px solid #6b717e;
+  border: 1px solid #6b717e;
   color: #6b717e;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
+  overflow: hidden;
   padding: 2.2rem 2rem;
   margin-block: 2.5rem;
   margin-inline: 2rem;
@@ -18,13 +19,13 @@
 }
 
 .active {
-  background: #5c80bc;
+  background: #d20820;
   color: #ffffff;
-  outline: none;
+  border-color: #d20820;
 }
 
 .active:hover {
-  background-color: #709ce7;
+  background-color: #f81004;
 }
 
 .title {
@@ -53,6 +54,7 @@
     width: 90%;
     padding: 1.2rem 1rem;
     margin-inline: 0;
+    margin-block: 1rem;
   }
 
   .title {

@@ -7,6 +7,40 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+body::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+body::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+body::-webkit-scrollbar-thumb {
+  background: #d20820;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+body::-webkit-scrollbar-thumb:hover {
+  background: #f8100f;
+}
+body::-webkit-scrollbar-thumb:active {
+  background: #bd0000;
+}
+body::-webkit-scrollbar-track {
+  background: #666666;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+body::-webkit-scrollbar-track:hover {
+  background: #666666;
+}
+body::-webkit-scrollbar-track:active {
+  background: #333333;
+}
+body::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
 a {
   color: inherit;
   text-decoration: none;
